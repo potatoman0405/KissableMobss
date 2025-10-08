@@ -1672,6 +1672,12 @@
 	icon_state = "dtiger"
 	gender_specific = 1
 
+/datum/sprite_accessory/body_markings/rain
+	name = "Rain"
+	icon_state = "rain"
+	gender_specific = 1
+	color_src = null
+
 /datum/sprite_accessory/body_markings/ltiger
 	name = "Light Tiger Body"
 	icon_state = "ltiger"
