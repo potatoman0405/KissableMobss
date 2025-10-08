@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "e" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/shuttle/engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)
@@ -13,7 +11,7 @@
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
-	name = "supply dock loading door"
+	name = "supply Dock Loading Door"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -45,7 +43,7 @@
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
-	name = "supply dock loading door"
+	name = "supply Dock Loading Door"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -64,7 +62,7 @@
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
-	name = "supply dock loading door"
+	name = "supply Dock Loading Door"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -116,13 +114,13 @@
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
-	name = "supply dock loading door"
+	name = "supply Dock Loading Door"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "W" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "X" = (

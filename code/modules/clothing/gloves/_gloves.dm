@@ -5,7 +5,6 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "white"
 	item_state = "wgloves"
-	worn_icon_state = "wgloves"
 	siemens_coefficient = 0.5
 	body_parts_covered = HANDS
 	slot_flags = ITEM_SLOT_GLOVES
@@ -25,7 +24,7 @@
 		return TRUE
 
 /obj/item/clothing/gloves/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>\the [src] are forcing [user]'s hands around [user.p_their()] neck! It looks like the gloves are possessed!</span>")
+	user.visible_message(span_suicide("\the [src] are forcing [user]'s hands around [user.p_their()] neck! It looks like the gloves are possessed!"))
 	return OXYLOSS
 
 /obj/item/clothing/gloves/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, item_layer, atom/origin)
@@ -36,13 +35,15 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedgloves", item_layer)
 	if(HAS_BLOOD_DNA(src))
-		. += mutable_appearance('icons/effects/blood.dmi', "bloodyhands", item_layer)
+		var/mutable_appearance/bloody_hands = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", item_layer)
+		bloody_hands.color = get_blood_dna_color(return_blood_DNA())
+		. += bloody_hands
 
 /obj/item/clothing/gloves/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.update_inv_gloves()
+		M.update_worn_gloves()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(atom/A, proximity)

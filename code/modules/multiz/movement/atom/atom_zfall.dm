@@ -21,6 +21,7 @@
 
 /// Handles this atom landing on a turf from a zfall
 /atom/movable/proc/onZImpact(turf/T, levels)
+	SHOULD_CALL_PARENT(TRUE)
 	var/atom/highest = null
 	for(var/i in T.contents)
 		var/atom/A = i
@@ -30,6 +31,8 @@
 			if(!highest || A.layer > highest.layer)
 				highest = A
 	INVOKE_ASYNC(src, PROC_REF(SpinAnimation), 5, 2)
+	//Signal for unique behavior for objects falling
+	SEND_SIGNAL(src, COMSIG_ATOM_ON_Z_IMPACT, T, levels)
 	if(highest)
 		throw_impact(highest, new /datum/thrownthing(src, highest, DOWN, levels, min(5, levels), null, FALSE, MOVE_FORCE_STRONG, null, BODY_ZONE_HEAD))
 	return TRUE
